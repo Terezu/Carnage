@@ -26,7 +26,7 @@ func _physics_process(delta):
 	
 # Função responsável pela destruição de inimigo e ativação da função de crescimento
 func _on_body_entered(body: Node2D):
-	if body.is_in_group("Inimigo1.x"):
+	if body.is_in_group("Inimigo1"):
 		
 		# Destrói inimigo
 		body.queue_free()
