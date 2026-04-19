@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Carnage"
-run/main_scene="uid://bhslbvt2wjdgv"
+run/main_scene="uid://bxaa8ccn0c3ay"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
