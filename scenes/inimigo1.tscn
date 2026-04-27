@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://l5dam0mj6tgu"]
 
-[ext_resource type="Script" uid="uid://dianjpgniwh2m" path="res://scripts/inimigo1.gd" id="1_6by7b"]
+[ext_resource type="Script" uid="uid://dianjpgniwh2m" path="res://scripts/InimigoPatrulha.gd" id="1_6by7b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6by7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6by7b"]
 size = Vector2(112, 32)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1736772193]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1736772193 groups=["Inimigos"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_6by7b")
@@ -17,6 +17,7 @@ shape = SubResource("CapsuleShape2D_6by7b")
 debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1983428189]
+target_position = Vector2(0, 20)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2142779665]
 collision_layer = 0

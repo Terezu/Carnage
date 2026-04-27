@@ -55,7 +55,14 @@ func movimentacao_patrulha():
 	
 	if is_on_floor():
 		if (is_on_wall() or not sensor_chao.is_colliding()) and pode_inverter:
+			if not sensor_chao.is_colliding():
+				print("SEM CHÃO")
+			
+			if is_on_wall():
+				print("PAREDE")
+				
 			inverter_direcao()
+			print("INVERTEU")
 			ponto_inicial.x = global_position.x
 			
 	var distancia_atual = abs(global_position.x - ponto_inicial.x)
@@ -75,7 +82,7 @@ func inverter_direcao():
 	pode_inverter = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Carnage":
+	if body.is_in_group("Player"):
 		player_na_area = body
 		
 func _on_area_2d_body_exited(body):

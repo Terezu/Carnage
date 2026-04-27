@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1x1xau2urn2" path="res://scenes/Carnage.tscn" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://dkl2hshfu5p5r" path="res://scripts/alavanca.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://l5dam0mj6tgu" path="res://scenes/inimigo1.tscn" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://du5np0whoeiec" path="res://scripts/inimigo2.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://c1ctux560h1dc" path="res://scenes/inimigo2.tscn" id="4_lbhrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
 size = Vector2(1315.6563, 42.266663)
@@ -11,11 +11,6 @@ size = Vector2(1315.6563, 42.266663)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqjtg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnu2h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57ef"]
-size = Vector2(204, 225)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=1777346347]
 
@@ -112,7 +107,6 @@ debug_color = Color(4.9093364e-06, 0.6485114, 0.1883657, 0.41960785)
 position = Vector2(729, 378)
 scale = Vector2(2.4735682, 2.417603)
 collision_layer = 2
-collision_mask = 3
 distancia_patrulha = 100.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Inimigo1_1" unique_id=1158692416]
@@ -128,7 +122,6 @@ process_mode = 3
 position = Vector2(600, 564)
 scale = Vector2(2.5047088, 2.5015204)
 collision_layer = 2
-collision_mask = 3
 distancia_patrulha = 100.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Inimigo1" unique_id=1611327857]
@@ -139,21 +132,5 @@ debug_color = Color(0.9946254, 0, 0.2264609, 0.41960785)
 visible = false
 target_position = Vector2(0, 15)
 
-[node name="Inimigo2" type="CharacterBody2D" parent="." unique_id=1207975634]
+[node name="Inimigo2" parent="." unique_id=546101583 instance=ExtResource("4_lbhrr")]
 position = Vector2(1054.0332, 355.2215)
-script = ExtResource("5_iywne")
-
-[node name="Area2D" type="Area2D" parent="Inimigo2" unique_id=1848933539]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo2/Area2D" unique_id=1889438719]
-visible = false
-position = Vector2(-7.033203, 8.278503)
-shape = SubResource("RectangleShape2D_p57ef")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo2" unique_id=2100184439]
-position = Vector2(68.9668, 91.7785)
-scale = Vector2(2.7828505, 2.777132)
-shape = SubResource("CircleShape2D_u5sy4")
-debug_color = Color(0.7371656, 0.22462884, 1, 0.41960785)
-
-[connection signal="body_entered" from="Inimigo2/Area2D" to="Inimigo2" method="_on_area_2d_body_entered"]
