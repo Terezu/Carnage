@@ -1,29 +1,52 @@
 [gd_scene format=3 uid="uid://l5dam0mj6tgu"]
 
 [ext_resource type="Script" uid="uid://dianjpgniwh2m" path="res://scripts/InimigoPatrulha.gd" id="1_6by7b"]
+[ext_resource type="Texture2D" uid="uid://bguo0jfj4jcr0" path="res://Sprites/inimigo pulo.png" id="2_6qm6a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6by7b"]
+radius = 32.0
+height = 90.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ovie"]
+atlas = ExtResource("2_6qm6a")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mb2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ovie")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6by7b"]
-size = Vector2(112, 32)
+size = Vector2(216, 88)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1736772193 groups=["Inimigos"]]
-collision_layer = 4
-collision_mask = 3
+collision_layer = 2
 script = ExtResource("1_6by7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103220936]
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_6by7b")
 debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1983428189]
 target_position = Vector2(0, 20)
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1285799853 groups=["InimigoPulo", "Inimigos"]]
+sprite_frames = SubResource("SpriteFrames_2mb2j")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=2142779665]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1121592757]
+position = Vector2(4, 4)
+scale = Vector2(0.9868727, 1)
 shape = SubResource("RectangleShape2D_6by7b")
 debug_color = Color(0.62352943, 0, 0.45882353, 0.15686275)
 

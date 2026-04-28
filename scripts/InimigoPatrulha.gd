@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
 @export var velocidade_patrulha = 100.0
-@export var distancia_patrulha = 200.0
+@export var distancia_patrulha = 100.0
 @export var gravidade = 980.0
 @export var velocidade_perseguicao = 125.0
 
 var player_na_area = null
-var direcao = 1
+var direcao = 20.0
 var ponto_inicial: Vector2
 var pode_inverter = true 
 var tempo_perseguicao = 0.0
 
 @onready var sensor_chao = $RayCast2D
-# Adicione a referência ao sprite (necessário troca de nome quando tiver sprite)
-# @onready var sprite = $Sprite2D 
+# Adicione a referência ao sprite
+@onready var sprite = $Sprite2D 
 
 func _ready():
 	ponto_inicial = global_position

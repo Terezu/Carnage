@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://baqaa1hjeb344"]
 
+[ext_resource type="Texture2D" uid="uid://mhucai0a717q" path="res://Sprites/inimigo tiro.png" id="1_xrpow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kejvh"]
+atlas = ExtResource("1_xrpow")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jf7wn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kejvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvrc0"]
+size = Vector2(16, 100)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1020049926 groups=["Inimigos"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=360818787]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2104051708]
+sprite_frames = SubResource("SpriteFrames_jf7wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=360818787 groups=["InimigoPulo", "Inimigos"]]
+scale = Vector2(1.2399993, 1)
 shape = SubResource("RectangleShape2D_bvrc0")
 debug_color = Color(0, 0.64840186, 0.19180104, 0.41960785)

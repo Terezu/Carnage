@@ -1,16 +1,33 @@
 [gd_scene format=3 uid="uid://d1x1xau2urn2"]
 
 [ext_resource type="Script" uid="uid://cblfe3qxr17gv" path="res://scripts/Carnage.gd" id="1_2s0qb"]
+[ext_resource type="Texture2D" uid="uid://c04kyivfk5tac" path="res://Sprites/sprite.png" id="2_j2o7q"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cj0n"]
-radius = 20.0
-height = 60.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1384u"]
+radius = 28.57148
+height = 96.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brbgt"]
+atlas = ExtResource("2_j2o7q")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_voqwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brbgt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbhrr"]
-radius = 21.0
+radius = 24.0
 height = 62.0
 
 [node name="Carnage" type="CharacterBody2D" unique_id=26066746 groups=["Player"]]
+position = Vector2(0, -56)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_2s0qb")
@@ -18,13 +35,19 @@ script = ExtResource("1_2s0qb")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=818853140]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2019640255]
-shape = SubResource("CapsuleShape2D_8cj0n")
+scale = Vector2(0.6799971, 1)
+shape = SubResource("CapsuleShape2D_1384u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=528392922]
+sprite_frames = SubResource("SpriteFrames_voqwo")
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1818238942]
+scale = Vector2(1.3599997, 1.0800006)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=350401585]
-visible = false
+scale = Vector2(0.80000037, 1.56)
 shape = SubResource("CapsuleShape2D_lbhrr")
 debug_color = Color(0.6585127, 0.5158633, 0, 0.41960785)
 
