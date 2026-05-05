@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var velocidade_perseguicao = 125.0
 
 var player_na_area = null
-var direcao = 20.0
+var direcao = 1.0
 var ponto_inicial: Vector2
 var pode_inverter = true 
 var tempo_perseguicao = 0.0

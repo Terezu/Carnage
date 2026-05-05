@@ -7,6 +7,9 @@ const FATOR_CRESCIMENTO = 1.1
 var super_pulo = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Referência para o nó de animação
+@onready var _animated_sprite = $AnimatedSprite2D
+
 func _physics_process(delta):
 	# Aplica gravidade se não estiver no chão
 	if not is_on_floor():
@@ -17,7 +20,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 		if super_pulo == true:
-			velocity *= 2
+			velocity.y *= 2 # Corrigido para afetar apenas o eixo Y do pulo
  
 	# Movimentação simples
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -28,10 +31,22 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	# Controle de Animação
+	atualizar_animacao(direction)
+
+func atualizar_animacao(direction):
+	if not is_on_floor():
+		_animated_sprite.play("jump")
+	elif direction != 0:
+		_animated_sprite.play("walk")
+		# Inverte o sprite baseado na direção
+		_animated_sprite.flip_h = (direction < 0)
+	else:
+		_animated_sprite.play("idle")
+
 # Função responsável pela destruição de inimigo e ativação da função de crescimento
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("Inimigos"):
-		
 		# Destrói inimigo
 		body.queue_free()
 		
@@ -54,3 +69,6 @@ func crescer_carnage():
 	
 	# Calculamos a diferença e subimos o personagem exatamente essa diferença
 	global_position.y -= (nova_altura - altura_antiga) / 2
+
+func _on_animated_sprite_2d_animation_looped() -> void:
+	pass
