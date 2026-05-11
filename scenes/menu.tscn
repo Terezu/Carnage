@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bpn1n1votiljq"]
+
+[ext_resource type="Script" uid="uid://b65jyiffvyvj" path="res://scripts/menu.gd" id="1_yqeox"]
+
+[node name="Menu" type="Control" unique_id=661964094]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yqeox")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=173749980]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=965417011]
+custom_minimum_size = Vector2(300, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1003000737]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2063030237]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="." method="_on_quit_button_pressed"]
