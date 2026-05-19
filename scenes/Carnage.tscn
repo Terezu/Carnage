@@ -113,5 +113,8 @@ scale = Vector2(0.80000037, 1.56)
 shape = SubResource("CapsuleShape2D_lbhrr")
 debug_color = Color(0.6585127, 0.5158633, 0, 0.41960785)
 
+[node name="SpawnProjetil" type="Marker2D" parent="." unique_id=1463730500]
+position = Vector2(24, -32)
+
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

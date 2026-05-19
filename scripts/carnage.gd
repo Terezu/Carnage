@@ -7,6 +7,8 @@ const FATOR_REDUCAO = 0.95 # Reduzir 5% é o mesmo que multiplicar por 0.95
 const ESCALA_MAX = 2.5
 const ESCALA_MIN = 0.5
 
+const PROJETIL = preload("res://scenes/projetil.tscn")
+
 # Referência para o Projétil (Arraste sua cena de tiro para cá no Inspetor)
 @export var projetil_cena: PackedScene
 
@@ -16,10 +18,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Referência para o nó de animação
 @onready var _animated_sprite = $AnimatedSprite2D
 
+# Referência para o ponto de onde o tiro vai sair
+@onready var spawn_projetil: Marker2D = $SpawnProjetil
+
 func _physics_process(delta):
 	# Aplica gravidade se não estiver no chão
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if Input.is_action_just_pressed("Atirar"):
+		atirar()
 
 	# Lógica do pulo
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -97,6 +105,24 @@ func crescer_carnage():
 	# Calculamos a diferença e subimos o personagem exatamente essa diferença
 	# Para que ele cresça a partir dos pés
 	global_position.y -= (nova_altura - altura_antiga) / 2
+
+func atirar() -> void:
+	# Instância o scene do projétil
+	var novo_projetil = PROJETIL.instantiate()
+	
+	# Define a posição e rotação de origem do projetil
+	novo_projetil.global_position = spawn_projetil.global_position
+	
+	# Lógica que ajusta a direção do tiro
+	if _animated_sprite.flip_h:
+		novo_projetil.direcao = -1.0
+		novo_projetil.scale.x = -1
+	else:                                           # O scale serve para "flipar"
+		novo_projetil.direcao = 1.0                  # desenho do projetil
+		novo_projetil.scale.x = 1
+
+	# Adiciona o projétil à cena onde é chamado, ativando ele
+	get_tree().current_scene.add_child(novo_projetil)
 
 func _on_animated_sprite_2d_animation_looped() -> void:
 	pass
