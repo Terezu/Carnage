@@ -55,7 +55,6 @@ size = Vector2(179.25, 600)
 size = Vector2(179.25, 600)
 
 [node name="1Fase" type="Node2D" unique_id=548777487]
-position = Vector2(312, -240)
 
 [node name="Carnage" parent="." unique_id=26066746 instance=ExtResource("1_u6cjt")]
 position = Vector2(104, -56)
@@ -125,8 +124,8 @@ shape = SubResource("RectangleShape2D_335sm")
 position = Vector2(-2000, -5496)
 shape = SubResource("RectangleShape2D_ka5ij")
 
-[node name="InimigoTiro" parent="." unique_id=1020049926 instance=ExtResource("7_fkkt3")]
-position = Vector2(176, -1480)
+[node name="InimigoTiro" parent="." unique_id=1020049926 groups=["InimigoTiro"] instance=ExtResource("7_fkkt3")]
+position = Vector2(-1896, -912)
 
 [node name="CharacterBody2D" parent="." unique_id=458631877 instance=ExtResource("2_a6545")]
 position = Vector2(64, -1104)

@@ -24,6 +24,7 @@ import/blender/enabled=false
 Player=""
 Inimigos=""
 InimigoPulo=""
+InimigoTiro=""
 
 [input]
 

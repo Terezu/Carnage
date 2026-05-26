@@ -13,6 +13,7 @@ const PROJETIL = preload("res://scenes/projetil.tscn")
 @export var projetil_cena: PackedScene
 
 var super_pulo = false
+var habilidade_tiro = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Referência para o nó de animação
@@ -58,23 +59,6 @@ func atualizar_animacao(direction):
 	else:
 		_animated_sprite.play("idle")
 
-# Função responsável pelo tiro do Carnage (e diminuição do tamanho)
-func atirar_e_encolher():
-	# 1. Instancia o projétil
-	if projetil_cena:
-		var tiro = projetil_cena.instantiate()
-		# Define a posição inicial do tiro
-		tiro.global_position = global_position
-		# Define a direção (baseado no flip do sprite)
-		tiro.direction = -1 if _animated_sprite.flip_h else 1
-		get_parent().add_child(tiro)
-
-	# 2. Calcula e limita a nova escala (Mínimo de 0.5)
-	var nova_escala = scale.x * FATOR_REDUCAO
-	nova_escala = max(nova_escala, ESCALA_MIN)
-	
-	scale = Vector2(nova_escala, nova_escala)
-
 # Função responsável pela destruição de inimigo e ativação da função de crescimento
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("Inimigos"):
@@ -86,6 +70,10 @@ func _on_body_entered(body: Node2D):
 		
 		if not super_pulo:
 			super_pulo = true
+			
+		if body.is_in_group("InimigoTiro"):
+			if not habilidade_tiro:
+				habilidade_tiro = true
 		
 # Função responsável pelo crescimento do Carnage
 func crescer_carnage():
@@ -107,22 +95,36 @@ func crescer_carnage():
 	global_position.y -= (nova_altura - altura_antiga) / 2
 
 func atirar() -> void:
-	# Instância o scene do projétil
-	var novo_projetil = PROJETIL.instantiate()
+	# Validação de que não é possível atirar após atingir o tamanho mínimo
+	if scale.x <= ESCALA_MIN:
+		return
 	
-	# Define a posição e rotação de origem do projetil
-	novo_projetil.global_position = spawn_projetil.global_position
-	
-	# Lógica que ajusta a direção do tiro
-	if _animated_sprite.flip_h:
-		novo_projetil.direcao = -1.0
-		novo_projetil.scale.x = -1
-	else:                                           # O scale serve para "flipar"
-		novo_projetil.direcao = 1.0                  # desenho do projetil
-		novo_projetil.scale.x = 1
+	if habilidade_tiro == true:
+		# Instância o scene do projétil
+		var novo_projetil = PROJETIL.instantiate()
+		
+		# Define a posição e rotação de origem do projetil
+		novo_projetil.global_position = spawn_projetil.global_position
+		
+		# Lógica que ajusta a direção do tiro
+		if _animated_sprite.flip_h:
+			novo_projetil.direcao = -1.0
+			novo_projetil.scale.x = -1
+		else:                                           # O scale serve para "flipar"
+			novo_projetil.direcao = 1.0                  # desenho do projetil
+			novo_projetil.scale.x = 1
 
-	# Adiciona o projétil à cena onde é chamado, ativando ele
-	get_tree().current_scene.add_child(novo_projetil)
+		# Adiciona o projétil à cena onde é chamado, ativando ele
+		get_tree().current_scene.add_child(novo_projetil)
+		
+		# Pega a escala atual do Carnage e aplica a redução de tamanho após atirar
+		var nova_escala = scale.x * FATOR_REDUCAO
+		
+		# Garante que o Carnage não ultrapasse o tamanho mínimo
+		nova_escala = max(nova_escala, ESCALA_MIN)
+		
+		# Aplica o novo tamanho
+		scale = Vector2(nova_escala, nova_escala)
 
 func _on_animated_sprite_2d_animation_looped() -> void:
 	pass
