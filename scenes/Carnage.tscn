@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cblfe3qxr17gv" path="res://scripts/Carnage.gd" id="1_2s0qb"]
 [ext_resource type="Texture2D" uid="uid://c04kyivfk5tac" path="res://Sprites/sprite.png" id="2_j2o7q"]
 [ext_resource type="Texture2D" uid="uid://bp2nk2h12h1ni" path="res://Sprites/walk.png" id="3_1384u"]
+[ext_resource type="Texture2D" uid="uid://barf2jj53lu6m" path="res://Sprites/jump.png" id="3_brbgt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1384u"]
 radius = 28.57148
@@ -56,6 +57,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_brbgt")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1384u")
 }, {
 "duration": 1.0,
@@ -102,7 +111,7 @@ shape = SubResource("CapsuleShape2D_1384u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=528392922]
 sprite_frames = SubResource("SpriteFrames_voqwo")
-animation = &"walk"
+animation = &"jump"
 
 [node name="SpawnProjetil" type="Marker2D" parent="." unique_id=1463730500]
 position = Vector2(24, -32)
