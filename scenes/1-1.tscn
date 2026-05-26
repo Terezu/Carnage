@@ -55,6 +55,7 @@ size = Vector2(179.25, 600)
 size = Vector2(179.25, 600)
 
 [node name="1Fase" type="Node2D" unique_id=548777487]
+position = Vector2(-104, 0)
 
 [node name="Carnage" parent="." unique_id=26066746 instance=ExtResource("1_u6cjt")]
 position = Vector2(104, -56)
