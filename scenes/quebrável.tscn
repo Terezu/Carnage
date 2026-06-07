@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://biasgeleyc1g2"]
+
+[ext_resource type="Texture2D" uid="uid://kvqu5twmgdgl" path="res://Sprites/QuebravelTrue.png" id="1_ci6wi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgiay"]
+texture = ExtResource("1_ci6wi")
+texture_region_size = Vector2i(96, 96)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qxad5"]
+tile_size = Vector2i(96, 96)
+sources/0 = SubResource("TileSetAtlasSource_sgiay")
+
+[node name="Quebravel" type="TileMapLayer" unique_id=1750959778]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_qxad5")
