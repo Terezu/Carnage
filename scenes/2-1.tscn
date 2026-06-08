@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://w4vlsaiepreo"]
+
+[ext_resource type="Texture2D" uid="uid://c0m36y0uepbcm" path="res://Sprites/1.png" id="1_okht4"]
+[ext_resource type="Texture2D" uid="uid://duitfanngwjln" path="res://Sprites/2.png" id="2_o5tts"]
+[ext_resource type="PackedScene" uid="uid://d1x1xau2urn2" path="res://scenes/Carnage.tscn" id="3_o5tts"]
+
+[node name="Node2D" type="Node2D" unique_id=949469859]
+
+[node name="1" type="Sprite2D" parent="." unique_id=1470240284]
+position = Vector2(-2568, -288)
+texture = ExtResource("1_okht4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="1" unique_id=1855792618]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1/StaticBody2D2" unique_id=106025846]
+position = Vector2(1024, 288)
+polygon = PackedVector2Array(0, 0, 0, 128, -1896, 128, -1984, 0, -1984, -328, -1968, -392, -2008, -520, -1984, -704, -1992, -840, -1976, -992, -1880, -1088, -1832, -1088, -1832, 0)
+
+[node name="2" type="Sprite2D" parent="." unique_id=2096041955]
+position = Vector2(-520, -288)
+texture = ExtResource("2_o5tts")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="2" unique_id=1376677233]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2/StaticBody2D2" unique_id=1706059336]
+position = Vector2(-1040, 288)
+polygon = PackedVector2Array(8, 0, 1728, 0, 1728, -1104, 1776, -1104, 1872, -992, 1872, 0, 1768, 128, 16, 128, 16, 0)
+
+[node name="Carnage" parent="." unique_id=26066746 instance=ExtResource("3_o5tts")]
+position = Vector2(0, -88)
