@@ -6,11 +6,22 @@
 texture = ExtResource("1_ci6wi")
 texture_region_size = Vector2i(96, 96)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -48, 48, -48, 48, 48, -48, 48)
 
 [sub_resource type="TileSet" id="TileSet_qxad5"]
 tile_size = Vector2i(96, 96)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sgiay")
 
-[node name="Quebravel" type="TileMapLayer" unique_id=1750959778]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci6wi"]
+size = Vector2(98, 98)
+
+[node name="Quebravel" type="TileMapLayer" unique_id=1750959778 groups=["Quebravel"]]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_qxad5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=656572897 groups=["Quebravel"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1464275645 groups=["Quebravel"]]
+position = Vector2(47, -47)
+shape = SubResource("RectangleShape2D_ci6wi")

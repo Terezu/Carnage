@@ -20,5 +20,6 @@ position = Vector2(0, 4)
 scale = Vector2(0.3852896, -0.5940584)
 texture = ExtResource("2_ri8ot")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

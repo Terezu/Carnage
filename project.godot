@@ -25,6 +25,7 @@ Player=""
 Inimigos=""
 InimigoPulo=""
 InimigoTiro=""
+Quebravel=""
 
 [input]
 
