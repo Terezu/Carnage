@@ -1,9 +1,8 @@
 extends Control
 
 var fases = [
-	# "res://scenes/1-1.tscn",
-	# "res://scenes/1-2.tscn",
-	"res://scenes/2-1.tscn"
+	"res://scenes/1-1.tscn",
+	"res://scenes/1-2.tscn",
 ]
 
 func _on_start_button_pressed():
