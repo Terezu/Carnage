@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d1x1xau2urn2" path="res://scenes/Carnage.tscn" id="3_o5tts"]
 [ext_resource type="PackedScene" uid="uid://l5dam0mj6tgu" path="res://scenes/inimigo1.tscn" id="4_fjhcd"]
 [ext_resource type="PackedScene" uid="uid://baqaa1hjeb344" path="res://scenes/inimigo2.tscn" id="5_0mshq"]
+[ext_resource type="PackedScene" uid="uid://ecrsp67ta3n1" path="res://scenes/token_transição.tscn" id="6_u1jqv"]
 
 [node name="Node2D" type="Node2D" unique_id=949469859]
 
@@ -76,3 +77,7 @@ position = Vector2(-696, -56)
 
 [node name="CharacterBody2D2" parent="." unique_id=1020049926 instance=ExtResource("5_0mshq")]
 position = Vector2(-2168, -312)
+
+[node name="Node2D" parent="." unique_id=1820380524 instance=ExtResource("6_u1jqv")]
+position = Vector2(80, -800)
+scale = Vector2(1, 0.32000107)

@@ -35,7 +35,7 @@ shape = SubResource("CapsuleShape2D_6by7b")
 debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1983428189]
-target_position = Vector2(0, 20)
+target_position = Vector2(0, 53)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1285799853 groups=["InimigoPulo", "Inimigos"]]
 sprite_frames = SubResource("SpriteFrames_2mb2j")

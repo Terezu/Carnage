@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cu72r3gocka8w"]
+
+[ext_resource type="Script" uid="uid://dol15rttpd5ku" path="res://scripts/transição_fases.gd" id="1_n51fr"]
+
+[node name="Control" type="Control" unique_id=842135748]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n51fr")

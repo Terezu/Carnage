@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var velocidade_patrulha = 100.0
+@export var velocidade_patrulha = 150.0
 @export var distancia_patrulha = 100.0
 @export var gravidade = 980.0
 @export var velocidade_perseguicao = 125.0

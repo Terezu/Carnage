@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ecrsp67ta3n1"]
+
+[ext_resource type="Script" uid="uid://dol15rttpd5ku" path="res://scripts/transição_fases.gd" id="1_bgsdv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekfn"]
+size = Vector2(16, 32)
+
+[node name="Node2D" type="Node2D" unique_id=1820380524 groups=["token"]]
+script = ExtResource("1_bgsdv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=809225288 groups=["token"]]
+scale = Vector2(-6.1340747, 2.9024663)
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2014965439 groups=["token"]]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_7ekfn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
