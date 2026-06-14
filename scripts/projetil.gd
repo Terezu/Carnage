@@ -8,21 +8,15 @@ func _process(delta: float) -> void:
 	position.x += velocidade * direcao * delta
 	
 # Função responsável pela colisão com inimigos
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_entered(area: Node2D) -> void:
 	# Se bater em um, inimigo, aplica lógica de dano
-	if body.is_in_group("inimigos"):
-		body.queue_free()
-
-	# Responsável por reconhecer um tilemap layer (caso da parede podre)
-	if body.is_in_group("Quebravel"):	
-		# Apaga a parede atingida
-		body.queue_free()
+	if area.is_in_group("inimigos"):
+		area.queue_free()
 		
+	if area.is_in_group("Quebravel"):
+		area.quebrar()
 		# Destrói o projétil
 		queue_free()
-
-	# Destrói o projétil
-	queue_free() 
 
 # Destrói o projétil uma vez que ele não esteja mais visível
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:

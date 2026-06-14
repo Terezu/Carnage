@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://beeo61jnf854w" path="res://Sprites/FASE2 2_2.png" id="3_wrs78"]
 [ext_resource type="PackedScene" uid="uid://ecrsp67ta3n1" path="res://scenes/token_transição.tscn" id="5_7pdee"]
 [ext_resource type="PackedScene" uid="uid://l5dam0mj6tgu" path="res://scenes/inimigo1.tscn" id="5_xoyaq"]
+[ext_resource type="PackedScene" uid="uid://biasgeleyc1g2" path="res://scenes/quebrável.tscn" id="6_c3uy3"]
+[ext_resource type="PackedScene" uid="uid://baqaa1hjeb344" path="res://scenes/inimigo2.tscn" id="7_4s4oi"]
 
 [node name="1-2" type="Node2D" unique_id=1105521610]
 
@@ -97,3 +99,10 @@ position = Vector2(1632, 576)
 light_mask = 2
 position = Vector2(3016, 64)
 scale = Vector2(1.0024096, 1.0025637)
+
+[node name="Quebravel" parent="." unique_id=271530672 instance=ExtResource("6_c3uy3")]
+position = Vector2(2023.9999, 472)
+scale = Vector2(1.1, 1.1)
+
+[node name="CharacterBody2D2" parent="." unique_id=1020049926 instance=ExtResource("7_4s4oi")]
+position = Vector2(1408, -136)
