@@ -1,27 +1,58 @@
 [gd_scene format=3 uid="uid://biasgeleyc1g2"]
 
-[ext_resource type="Texture2D" uid="uid://kvqu5twmgdgl" path="res://Sprites/QuebravelTrue.png" id="1_ci6wi"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgiay"]
-texture = ExtResource("1_ci6wi")
-texture_region_size = Vector2i(96, 96)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -48, 48, -48, 48, 48, -48, 48)
-
-[sub_resource type="TileSet" id="TileSet_qxad5"]
-tile_size = Vector2i(96, 96)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_sgiay")
+[ext_resource type="Texture2D" uid="uid://oobybhnnxh6p" path="res://Sprites/door.png" id="1_ci6wi"]
+[ext_resource type="Script" uid="uid://b0pan7xhl4xm7" path="res://scripts/quebrável.gd" id="1_sgiay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci6wi"]
-size = Vector2(98, 98)
+size = Vector2(48, 129)
 
-[node name="Quebravel" type="TileMapLayer" unique_id=1750959778 groups=["Quebravel"]]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_qxad5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgiay"]
+atlas = ExtResource("1_ci6wi")
+region = Rect2(0, 0, 75, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxad5"]
+atlas = ExtResource("1_ci6wi")
+region = Rect2(75, 0, 75, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf5aw"]
+atlas = ExtResource("1_ci6wi")
+region = Rect2(150, 0, 75, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ikjx"]
+atlas = ExtResource("1_ci6wi")
+region = Rect2(225, 0, 75, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_amkw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgiay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxad5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf5aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ikjx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Quebravel" type="Node2D" unique_id=271530672 groups=["Quebravel"]]
+script = ExtResource("1_sgiay")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=656572897 groups=["Quebravel"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1464275645 groups=["Quebravel"]]
-position = Vector2(47, -47)
+position = Vector2(0, -63.5)
 shape = SubResource("RectangleShape2D_ci6wi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1517452599]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_amkw3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

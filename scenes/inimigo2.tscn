@@ -26,6 +26,6 @@ size = Vector2(16, 100)
 sprite_frames = SubResource("SpriteFrames_jf7wn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=360818787 groups=["InimigoPulo", "Inimigos"]]
-scale = Vector2(1.2399993, 1)
+scale = Vector2(2.1599994, 1)
 shape = SubResource("RectangleShape2D_bvrc0")
 debug_color = Color(0, 0.64840186, 0.19180104, 0.41960785)

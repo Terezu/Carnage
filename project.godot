@@ -26,6 +26,7 @@ Inimigos=""
 InimigoPulo=""
 InimigoTiro=""
 Quebravel=""
+projetil=""
 
 [input]
 
