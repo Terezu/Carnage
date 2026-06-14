@@ -79,5 +79,5 @@ position = Vector2(-696, -56)
 position = Vector2(-2168, -312)
 
 [node name="Node2D" parent="." unique_id=1820380524 instance=ExtResource("6_u1jqv")]
-position = Vector2(80, -800)
-scale = Vector2(1, 0.32000107)
+position = Vector2(-1264, -6)
+scale = Vector2(2.682176, 2.4292197)

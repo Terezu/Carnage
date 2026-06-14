@@ -9,7 +9,7 @@ const ESCALA_MIN = 0.5
 
 const PROJETIL = preload("res://scenes/projetil.tscn")
 
-# Referência para o Projétil (Arraste sua cena de tiro para cá no Inspetor)
+# Referência para o Projétil
 @export var projetil_cena: PackedScene
 
 var super_pulo = false

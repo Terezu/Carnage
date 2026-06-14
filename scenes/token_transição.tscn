@@ -1,9 +1,39 @@
 [gd_scene format=3 uid="uid://ecrsp67ta3n1"]
 
 [ext_resource type="Script" uid="uid://dol15rttpd5ku" path="res://scripts/transição_fases.gd" id="1_bgsdv"]
+[ext_resource type="Texture2D" uid="uid://cqi777oavrcmj" path="res://Sprites/token toll.png" id="2_xnxbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekfn"]
-size = Vector2(16, 32)
+size = Vector2(7.825141, 24.80649)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a1fw"]
+atlas = ExtResource("2_xnxbu")
+region = Rect2(0, 0, 63, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inan7"]
+atlas = ExtResource("2_xnxbu")
+region = Rect2(63, 0, 63, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bib6w"]
+atlas = ExtResource("2_xnxbu")
+region = Rect2(126, 0, 63, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgsdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a1fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inan7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bib6w")
+}],
+"loop": false,
+"name": &"conclusão",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=1820380524 groups=["token"]]
 script = ExtResource("1_bgsdv")
@@ -14,7 +44,14 @@ collision_layer = 2
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2014965439 groups=["token"]]
-position = Vector2(0, -16)
+position = Vector2(-3.1094316e-07, -12.403245)
 shape = SubResource("RectangleShape2D_7ekfn")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=146781728]
+position = Vector2(0, -40)
+scale = Vector2(1, 1.16)
+sprite_frames = SubResource("SpriteFrames_bgsdv")
+animation = &"conclusão"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
