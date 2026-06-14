@@ -1,14 +1,18 @@
-extends CollisionShape2D
+extends Area2D
 
-@export var Parede_quebrável: Node2D
+@onready var animated_sprite = $AnimatedSprite2D
 
-func _on_body_entered(body: Node2D):
-	if body.is_in_group("Carnage"):
-		destruir_parede()
-		
-func destruir_parede():
-	if is_instance_valid(Parede_quebrável):
-		Parede_quebrável.queue_free()
-		
-	queue_free()
-	
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		if Input.is_action_just_pressed("Ação"):
+			animated_sprite.play("ativar")

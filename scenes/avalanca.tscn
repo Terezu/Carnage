@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://hxg64e05m0ea"]
+
+[ext_resource type="Script" uid="uid://c4uqi7xoalkfu" path="res://scripts/alavanca.gd" id="1_qjkin"]
+[ext_resource type="Texture2D" uid="uid://c8xsi3fd5bmwq" path="res://Sprites/alavanca2.png" id="1_whmoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkin"]
+size = Vector2(26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhkhf"]
+atlas = ExtResource("1_whmoy")
+region = Rect2(0, 0, 32, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viph4"]
+atlas = ExtResource("1_whmoy")
+region = Rect2(32, 0, 32, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exxns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhkhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viph4")
+}],
+"loop": false,
+"name": &"ativar",
+"speed": 5.0
+}]
+
+[node name="Avalanca" type="Node2D" unique_id=13794006]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=810090657]
+script = ExtResource("1_qjkin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=914312696]
+position = Vector2(3, -8)
+shape = SubResource("RectangleShape2D_qjkin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=576950245]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_exxns")
+animation = &"ativar"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

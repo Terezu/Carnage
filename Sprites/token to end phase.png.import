@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c62ml3f0t7tlx"
-path="res://.godot/imported/token to end phase.png-886393fc6d58bf9358d4df079d6f2c37.ctex"
+path="res://.godot/imported/token to end phase.png-a16d0ef6ed0e129c5022bc166acf96ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://token to end phase.png"
-dest_files=["res://.godot/imported/token to end phase.png-886393fc6d58bf9358d4df079d6f2c37.ctex"]
+source_file="res://Sprites/token to end phase.png"
+dest_files=["res://.godot/imported/token to end phase.png-a16d0ef6ed0e129c5022bc166acf96ed.ctex"]
 
 [params]
 
