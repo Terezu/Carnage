@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://8xymee6mlsr3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfs7r"]
+load_path = "res://.godot/imported/FASE4.png-d30c17f0c1aa9bda731b36d652c1a73b.ctex"
+
+[node name="Node2D" type="Node2D" unique_id=159167746]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=944366247]
+position = Vector2(-392, -536)
+texture = SubResource("CompressedTexture2D_jfs7r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=1942790002]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1870976362]
+position = Vector2(480, 600)
+polygon = PackedVector2Array(0, 0, 0, -224, 496, -704, 504, -736, -248, -1472, -312, -1472, -312, -1416, -272, -1408, -248, -1392, -232, -1384, 216, -944, 216, -936, 128, -936, 112, -920, 128, -880, 264, -880, 424, -720, 424, -704, 328, -616, 304, -608, 208, -512, 176, -472, 8, -328, -32, -288, -56, -264, -64, -248, -56, -224, -56, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1951069419]
+position = Vector2(480, 600)
+polygon = PackedVector2Array(0, 0, 0, -48, -624, -48, -624, 0)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=2070048660]
+position = Vector2(-144, 600)
+polygon = PackedVector2Array(0, 0, 0, -72, -8, -112, -104, -192, -112, -200, -464, -200, -456, -360, -816, -728, -72, -1464, 312, -1472, 312, -1416, -40, -1416, -72, -1400, -760, -720, -760, -712, -424, -384, -400, -360, -408, -248, -288, -248, -112, -248, 48, -112, 48, 0)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1601631115]
+position = Vector2(168, -816)
+polygon = PackedVector2Array(0, 0, 0, 272, 128, 392, 328, 400, 328, 424, 176, 424, 184, 448, 200, 472, 200, 496, 176, 528, 136, 552, 136, 560, 376, 560, 376, 560, 376, 600, 88, 600, -88, 768, -80, 776, 176, 776, 184, 784, 192, 784, 192, 832, -120, 832, -120, 984, -72, 984, -56, 984, -32, 976, -16, 976, 8, 984, 64, 984, 72, 1000, 72, 1024, 8, 1040, -16, 1040, -104, 1024, -112, 1040, -112, 1144, -144, 1160, -168, 1152, -176, 1128, -168, 984, -184, 920, -168, 888, -168, 872, -176, 880, -200, 912, -208, 912, -208, 904, -344, 760, -408, 720, -440, 680, -448, 672, -472, 648, -528, 592, -568, 552, -600, 520, -536, 456, -440, 360, -360, 288, -336, 264, -328, 256, -224, 256, -48, 256, -48, 0)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1496881095]
+position = Vector2(-24, 488)
+polygon = PackedVector2Array(0, 0, 48, 8, 56, 8, 56, -16, 48, -24, 0, -24)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=408143359]
+position = Vector2(304, 400)
+polygon = PackedVector2Array(0, 0, 8, -8, 8, -40, 8, -48, -64, -48, -88, -40, -120, -40, -120, -16, -104, -8, -80, 0)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=906357978]
+position = Vector2(-144, 312)
+polygon = PackedVector2Array(0, 0, 0, -16, 8, -24, 72, -24, 80, -16, 80, 0, 72, 8, 64, 8, 48, 16, 24, 16)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=137497765]
+position = Vector2(-88, 184)
+polygon = PackedVector2Array(0, 0, 0, -8, -8, -24, -8, -40, -80, -40, -80, 0)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1163246479]
+position = Vector2(-544, 240)
+polygon = PackedVector2Array(0, 0, 320, 0, 320, -24, 144, -24, 112, -32, 0, -32, -24, -24)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1262133871]
+position = Vector2(-288, 120)
+polygon = PackedVector2Array(0, 0, 0, -24, -8, -40, -56, -40, -88, -48, -104, -40, -144, -40, -152, -32, -152, 0)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1600217589]
+position = Vector2(-704, 8)
+polygon = PackedVector2Array(0, 0, -8, 8, -8, 40, 40, 48, 64, 48, 96, 40, 104, 40, 232, 40, 240, 32, 240, 0, 176, 0)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1440896373]
+position = Vector2(-288, -40)
+polygon = PackedVector2Array(0.44195557, 0.4180298, 8, -8, 8, -32, -128, -32, -128, 0)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=828787225]
+position = Vector2(-848, -144)
+polygon = PackedVector2Array(0, 0, -8, 8, -8, 32, 0, 40, 232, 40, 240, 40, 288, 32, 288, 0)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1232110969]
+position = Vector2(-432, -232)
+polygon = PackedVector2Array(0, 0, -24, -8, -96, 0, -96, 16, -88, 24, -32, 24, 0, 16)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1851518742]
+position = Vector2(-624, -352)
+polygon = PackedVector2Array(0, 0, 8, -8, 40, -8, 56, 0, 112, 0, 112, 24, 0, 24)
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=206282098]
+position = Vector2(-448, -448)
+polygon = PackedVector2Array(0, 0, 8, 0, 40, 0, 56, 0, 104, 0, 104, 24, 0, 24)
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=1446416157]
+position = Vector2(-328, -536)
+polygon = PackedVector2Array(0, 0, 8, 0, 40, 0, 56, 0, 88, 0, 88, 24, 0, 24)
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=2101821247]
+position = Vector2(328, 304)
+polygon = PackedVector2Array(0, 0, 128, 0, 152, -24, 0, -24, -8, -16, -8, -8)
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=315722616]
+position = Vector2(528, 120)
+polygon = PackedVector2Array(-112, 0, -88, 8, 0, 8, 48, 8, 128, 0, 152, -24, 0, -24, -104, -24, -112, -16)
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=189123133]
+position = Vector2(728, -128)
+polygon = PackedVector2Array(-136, 8, -272, 8, -272, 48, -248, 64, -184, 64, -152, 72, -120, 56, -88, 32, -72, 32, 48, 32, 176, 32, 184, 24, 184, 8, 152, -24, 0, -24, -104, -24, -112, -16)
