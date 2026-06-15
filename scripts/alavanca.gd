@@ -2,19 +2,29 @@ extends Node2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-var acao_feita = false
+var player_na_area: bool = false
+var ativada: bool = false
 
-func _on_body_entered(body: Node2D) -> void:
+func _ready() -> void:
+	print("NÓ ATUAL:", self.name)
+	print("FILHOS:", get_children())
+	print("SPRITE:", animated_sprite)
+
+func _process(_delta: float) -> void:
+	if player_na_area and Input.is_action_just_pressed("Ação") and not ativada:
+		ativar_alavanca()
+
+func ativar_alavanca() -> void:
+	ativada = true
+	animated_sprite.play("ativar")
+	print("ALAVANCA ATIVADA")
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		if Input.is_action_just_pressed("Ação") and acao_feita == false:
-			animated_sprite.play("ativar")
-			acao_feita = true
+		player_na_area = true
+		print("PLAYER ENTROU NA ALAVANCA")
 
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("parede_alavanca"):
-		var parede = area.get_parent()
-		
-		if parede.has_method("quebrar"):
-			parede.quebrar()
-			queue_free()
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player_na_area = false
+		print("PLAYER SAIU DA ALAVANCA")

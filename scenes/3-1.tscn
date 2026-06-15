@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://8xymee6mlsr3"]
 
+[ext_resource type="PackedScene" uid="uid://biasgeleyc1g2" path="res://scenes/quebrável.tscn" id="1_qgcrv"]
+[ext_resource type="PackedScene" uid="uid://baqaa1hjeb344" path="res://scenes/inimigo2.tscn" id="2_iqyoc"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfs7r"]
 load_path = "res://.godot/imported/FASE4.png-d30c17f0c1aa9bda731b36d652c1a73b.ctex"
 
@@ -90,3 +93,11 @@ polygon = PackedVector2Array(-112, 0, -88, 8, 0, 8, 48, 8, 128, 0, 152, -24, 0, 
 [node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=189123133]
 position = Vector2(728, -128)
 polygon = PackedVector2Array(-136, 8, -272, 8, -272, 48, -248, 64, -184, 64, -152, 72, -120, 56, -88, 32, -72, 32, 48, 32, 176, 32, 184, 24, 184, 8, 152, -24, 0, -24, -104, -24, -112, -16)
+
+[node name="Quebravel" parent="." unique_id=271530672 instance=ExtResource("1_qgcrv")]
+position = Vector2(-48, -256)
+scale = Vector2(0.6000012, 2.1941679)
+
+[node name="CharacterBody2D" parent="." unique_id=1020049926 instance=ExtResource("2_iqyoc")]
+position = Vector2(-920, -200)
+scale = Vector2(0.25, 0.25)

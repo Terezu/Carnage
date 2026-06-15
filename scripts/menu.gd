@@ -1,7 +1,7 @@
 extends Control
 
 var fases = [
-	"res://scenes/1-1.tscn",
+	# "res://scenes/1-1.tscn",
 	"res://scenes/1-2.tscn",
 ]
 

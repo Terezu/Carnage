@@ -9,8 +9,8 @@ func _process(delta: float) -> void:
 	
 # Função responsável pela colisão com inimigos
 func _on_area_entered(area: Node2D) -> void:
-	print("COLIDI COM:", area.name)
-	print("GRUPOS:", area.get_groups())
+	# print("COLIDI COM:", area.name)
+	# print("GRUPOS:", area.get_groups())
 	
 	if area.is_in_group("inimigos"):
 		area.queue_free()
@@ -19,8 +19,8 @@ func _on_area_entered(area: Node2D) -> void:
 	if area.is_in_group("Quebravel"):
 		var parede = area.get_parent()
 		
-		print("PAI:", parede.name)
-		print("TEM QUEBRAR:", parede.has_method("quebrar"))
+		# print("PAI:", parede.name)
+		# print("TEM QUEBRAR:", parede.has_method("quebrar"))
 		
 		if parede.has_method("quebrar"):
 			parede.quebrar()

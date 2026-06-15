@@ -114,6 +114,6 @@ position = Vector2(2720, 104)
 scale = Vector2(5.25, 5.25)
 
 [node name="Avalanca" parent="." unique_id=13794006 instance=ExtResource("9_inqie")]
-position = Vector2(920, -984)
+position = Vector2(912, -880.00006)
 rotation = 1.5707964
 scale = Vector2(2.25, 2.25)
