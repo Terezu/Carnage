@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://ds0mk6v4pgeyy"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a4ru"]
+size = Vector2(98, 250)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6a4ru"]
 
 [node name="ParedeAlavanca" type="Node2D" unique_id=815447340]
@@ -7,6 +10,8 @@
 [node name="Area2D" type="Area2D" parent="." unique_id=1100803557]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=838948242]
+position = Vector2(0, -128)
+shape = SubResource("RectangleShape2D_6a4ru")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487268612]
 sprite_frames = SubResource("SpriteFrames_6a4ru")
