@@ -6,14 +6,19 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mahr"]
 
 [node name="Area2D" type="Area2D" unique_id=336874775 groups=["projetil"]]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_5iet8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338575740]
+light_mask = 7
+visibility_layer = 7
 rotation = 1.5707964
 scale = Vector2(1, 1.2799999)
 shape = SubResource("CapsuleShape2D_2mahr")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1768233016]
+rect = Rect2(-16, -10, 32, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1253984219]
 position = Vector2(0, 4)
@@ -21,5 +26,4 @@ scale = Vector2(0.3852896, -0.5940584)
 texture = ExtResource("2_ri8ot")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

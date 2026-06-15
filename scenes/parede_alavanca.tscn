@@ -1,17 +1,36 @@
 [gd_scene format=3 uid="uid://ds0mk6v4pgeyy"]
 
+[ext_resource type="Texture2D" uid="uid://42qpkyuo7sbg" path="res://Sprites/door2.png" id="1_r8kqr"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a4ru"]
-size = Vector2(98, 250)
+size = Vector2(48, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umkn8"]
+atlas = ExtResource("1_r8kqr")
+region = Rect2(0, 0, 46, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6a4ru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umkn8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ParedeAlavanca" type="Node2D" unique_id=815447340]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1100803557]
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=1148697627]
+collision_layer = 2
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=838948242]
-position = Vector2(0, -128)
+position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_6a4ru")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487268612]
+position = Vector2(0, -64)
+scale = Vector2(1, 1.0666667)
 sprite_frames = SubResource("SpriteFrames_6a4ru")

@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://l5dam0mj6tgu" path="res://scenes/inimigo1.tscn" id="5_xoyaq"]
 [ext_resource type="PackedScene" uid="uid://biasgeleyc1g2" path="res://scenes/quebrável.tscn" id="6_c3uy3"]
 [ext_resource type="PackedScene" uid="uid://baqaa1hjeb344" path="res://scenes/inimigo2.tscn" id="7_4s4oi"]
+[ext_resource type="PackedScene" uid="uid://ds0mk6v4pgeyy" path="res://scenes/parede_alavanca.tscn" id="8_qfu8v"]
+[ext_resource type="PackedScene" uid="uid://hxg64e05m0ea" path="res://scenes/avalanca.tscn" id="9_inqie"]
 
 [node name="1-2" type="Node2D" unique_id=1105521610]
 
@@ -106,3 +108,12 @@ scale = Vector2(1.1, 1.1)
 
 [node name="CharacterBody2D2" parent="." unique_id=1020049926 instance=ExtResource("7_4s4oi")]
 position = Vector2(1408, -136)
+
+[node name="ParedeAlavanca" parent="." unique_id=815447340 instance=ExtResource("8_qfu8v")]
+position = Vector2(2720, 104)
+scale = Vector2(5.25, 5.25)
+
+[node name="Avalanca" parent="." unique_id=13794006 instance=ExtResource("9_inqie")]
+position = Vector2(920, -984)
+rotation = 1.5707964
+scale = Vector2(2.25, 2.25)
