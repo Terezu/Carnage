@@ -2,9 +2,9 @@ extends Node2D
 
 @export var fases = [
 	"res://scenes/2-1.tscn",
-	"res://scenes/2-2.tscn",
-	"res://scenes/3-1.tscn",
-	"res://scenes/3-2.tscn",
+	"res://scenes/2-2.tscn"
+	# "res://scenes/3-1.tscn",
+	# "res://scenes/3-2.tscn",
 ]
 
 @onready var _animated_sprite = $AnimatedSprite2D
