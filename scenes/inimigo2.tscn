@@ -1,31 +1,92 @@
 [gd_scene format=3 uid="uid://baqaa1hjeb344"]
 
+[ext_resource type="Script" uid="uid://du5np0whoeiec" path="res://scripts/InimigoTiro.gd" id="1_kejvh"]
 [ext_resource type="Texture2D" uid="uid://mhucai0a717q" path="res://Sprites/inimigo tiro.png" id="1_xrpow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrpow"]
+atlas = ExtResource("1_xrpow")
+region = Rect2(0, 0, 116, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kejvh"]
 atlas = ExtResource("1_xrpow")
-region = Rect2(0, 0, 100, 100)
+region = Rect2(0, 0, 116, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf7wn"]
+atlas = ExtResource("1_xrpow")
+region = Rect2(116, 0, 116, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54mqn"]
+atlas = ExtResource("1_xrpow")
+region = Rect2(232, 0, 116, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3uv1"]
+atlas = ExtResource("1_xrpow")
+region = Rect2(348, 0, 116, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jf7wn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kejvh")
+"texture": SubResource("AtlasTexture_xrpow")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kejvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf7wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54mqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3uv1")
+}],
+"loop": false,
+"name": &"tiro",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvrc0"]
 size = Vector2(16, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kejvh"]
+size = Vector2(99.200005, 96)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1020049926 groups=["InimigoTiro", "Inimigos"]]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_kejvh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2104051708 groups=["InimigoTiro", "Inimigos"]]
+position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_jf7wn")
+animation = &"tiro"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=360818787 groups=["InimigoPulo", "Inimigos"]]
+light_mask = 7
+visibility_layer = 7
 scale = Vector2(2.1599994, 1)
 shape = SubResource("RectangleShape2D_bvrc0")
 debug_color = Color(0, 0.64840186, 0.19180104, 0.41960785)
+
+[node name="SpawnProjetil" type="Marker2D" parent="." unique_id=1509400012]
+position = Vector2(40, -8)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1977924559 groups=["InimigoTiro"]]
+light_mask = 7
+visibility_layer = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1237920511]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(224, 0)
+scale = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_kejvh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

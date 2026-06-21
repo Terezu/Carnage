@@ -12,15 +12,23 @@ const PROJETIL = preload("res://scenes/projetil.tscn")
 # Referência para o Projétil
 @export var projetil_cena: PackedScene
 
+var vida := 3
+
 var super_pulo = false
 var habilidade_tiro = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+# Referência para limitação da câmera
+@onready var camera: Camera2D = $Camera2D
 
 # Referência para o nó de animação
 @onready var _animated_sprite = $AnimatedSprite2D
 
 # Referência para o ponto de onde o tiro vai sair
 @onready var spawn_projetil: Marker2D = $SpawnProjetil
+
+func _ready() -> void:
+	pass
 
 func _physics_process(delta):
 	# Aplica gravidade se não estiver no chão
@@ -128,3 +136,23 @@ func atirar() -> void:
 
 func _on_animated_sprite_2d_animation_looped() -> void:
 	pass
+	
+func receber_dano(valor: int) -> void:
+	modulate.a = 0.3
+	await get_tree().create_timer(0.1).timeout
+	modulate.a = 1.0
+	vida -= valor
+	print("Player tomou dano. Vida atual:", vida)
+
+	if vida <= 0:
+		morrer()
+
+func morrer() -> void:
+	print("Player morreu")
+	queue_free()
+
+func aplicar_limites_camera(left: int, right: int, top: int, bottom: int) -> void:
+	camera.limit_left = left
+	camera.limit_right = right
+	camera.limit_top = top
+	camera.limit_bottom = bottom

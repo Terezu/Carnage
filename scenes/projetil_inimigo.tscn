@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dbn06euudyti"]
+
+[ext_resource type="Script" uid="uid://c4duthl1mwcqq" path="res://scripts/projetil_inimigo.gd" id="1_rx4f6"]
+[ext_resource type="Texture2D" uid="uid://cu7u4kqbntvwg" path="res://Sprites/tiro_do_inimigo.png" id="2_rx4f6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mahr"]
+radius = 6.250001
+height = 12.500002
+
+[node name="Area2D" type="Area2D" unique_id=336874775 groups=["projetil_inimigo"]]
+light_mask = 7
+visibility_layer = 7
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_rx4f6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338575740]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(4, 0)
+rotation = 1.5707964
+scale = Vector2(1.5, 2.0599997)
+shape = SubResource("CapsuleShape2D_2mahr")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1768233016]
+rect = Rect2(-8, -10, 24, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1253984219]
+position = Vector2(8, 0)
+texture = ExtResource("2_rx4f6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
