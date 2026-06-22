@@ -1,15 +1,12 @@
 extends Node2D
 
-@onready var sprite = $AnimatedSprite2D
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var colisao_parede: CollisionShape2D = $"../CollisionShape2D"
 
 func quebrar():
-	animacao()
-	await get_tree().create_timer(1.0).timeout
-	queue_free()
+	colisao_parede.set_deferred("disabled", true)
 
-func animacao():
-		sprite.play("desfazer")
+	sprite.play("desfazer")
+	await sprite.animation_finished
+
+	queue_free()

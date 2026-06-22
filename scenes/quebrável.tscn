@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgiay"]
 size = Vector2(56, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci6wi"]
+size = Vector2(56, 120)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxad5"]
 atlas = ExtResource("2_sgiay")
 region = Rect2(0, 0, 75, 120)
@@ -42,9 +45,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci6wi"]
-size = Vector2(56, 120)
-
 [node name="Quebravel" type="Node2D" unique_id=271530672 groups=["Quebravel"]]
 light_mask = 7
 visibility_layer = 7
@@ -62,22 +62,23 @@ visibility_layer = 7
 position = Vector2(-4, -60)
 shape = SubResource("RectangleShape2D_sgiay")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=1517452599 groups=["Quebravel"]]
-light_mask = 7
-visibility_layer = 7
-position = Vector2(-40, -120)
-sprite_frames = SubResource("SpriteFrames_amkw3")
-animation = &"desfazer"
-centered = false
-
 [node name="Area2D2" type="Area2D" parent="StaticBody2D" unique_id=1598605224 groups=["Quebravel"]]
 collision_layer = 7
 collision_mask = 7
+script = ExtResource("1_sgiay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D2" unique_id=1464275645 groups=["Quebravel"]]
 light_mask = 7
 visibility_layer = 7
 position = Vector2(-4, -60)
 shape = SubResource("RectangleShape2D_ci6wi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D/Area2D2" unique_id=1517452599 groups=["Quebravel"]]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(-40, -120)
+sprite_frames = SubResource("SpriteFrames_amkw3")
+animation = &"desfazer"
+centered = false
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

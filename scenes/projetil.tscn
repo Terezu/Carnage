@@ -10,7 +10,7 @@ collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_5iet8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338575740]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338575740 groups=["projetil"]]
 light_mask = 7
 visibility_layer = 7
 rotation = 1.5707964

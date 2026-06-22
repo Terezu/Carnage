@@ -1,27 +1,29 @@
 extends Area2D
 
-@onready var shape: CollisionShape2D = $CollisionShape2D
+@export var prioridade := 0
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		aplicar_limites(body)
+@onready var collision: CollisionShape2D = $CollisionShape2D
 
-func aplicar_limites(player: Node2D) -> void:
+func contem_ponto(ponto: Vector2) -> bool:
+	var rect := collision.shape as RectangleShape2D
+	var centro := collision.global_position
+	var metade := rect.size / 2.0
 
-	var rect_shape = shape.shape as RectangleShape2D
+	var left := centro.x - metade.x
+	var right := centro.x + metade.x
+	var top := centro.y - metade.y
+	var bottom := centro.y + metade.y
 
-	var tamanho = rect_shape.size
-	var centro = global_position
+	return ponto.x >= left and ponto.x <= right and ponto.y >= top and ponto.y <= bottom
 
-	var left = centro.x - tamanho.x / 2
-	var right = centro.x + tamanho.x / 2
+func pegar_limites() -> Dictionary:
+	var rect := collision.shape as RectangleShape2D
+	var centro := collision.global_position
+	var metade := rect.size / 2.0
 
-	var top = centro.y - tamanho.y / 2
-	var bottom = centro.y + tamanho.y / 2
-
-	player.aplicar_limites_camera(
-		int(left),
-		int(right),
-		int(top),
-		int(bottom)
-	)
+	return {
+		"left": int(centro.x - metade.x),
+		"right": int(centro.x + metade.x),
+		"top": int(centro.y - metade.y),
+		"bottom": int(centro.y + metade.y)
+	}

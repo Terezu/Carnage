@@ -7,7 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://hxg64e05m0ea" path="res://scenes/avalanca.tscn" id="5_0mshq"]
 [ext_resource type="PackedScene" uid="uid://ds0mk6v4pgeyy" path="res://scenes/parede_alavanca.tscn" id="6_epfis"]
 [ext_resource type="PackedScene" uid="uid://bvf2khqkcbxre" path="res://scenes/fundo.tscn" id="7_gs612"]
+[ext_resource type="Script" uid="uid://wr25l7lmpuyh" path="res://scripts/zona_camera.gd" id="9_idv2q"]
 [ext_resource type="PackedScene" uid="uid://baqaa1hjeb344" path="res://scenes/inimigo2.tscn" id="9_kthy0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gw7k"]
+size = Vector2(544, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idv2q"]
+size = Vector2(736, 760)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kthy0"]
+size = Vector2(792, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuis5"]
+size = Vector2(80, 90)
 
 [node name="1-3" type="Node2D" unique_id=1500473528]
 
@@ -85,3 +98,34 @@ position = Vector2(680, -144)
 
 [node name="CharacterBody2D3" parent="." unique_id=713008923 instance=ExtResource("9_kthy0")]
 position = Vector2(296, -40)
+
+[node name="CameraZones" type="Node2D" parent="." unique_id=428182350 groups=["cameras"]]
+
+[node name="Zone1" type="Area2D" parent="CameraZones" unique_id=1604504071 groups=["cameras"]]
+script = ExtResource("9_idv2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone1" unique_id=626589023]
+position = Vector2(144, -124)
+shape = SubResource("RectangleShape2D_4gw7k")
+
+[node name="Zone2" type="Area2D" parent="CameraZones" unique_id=1910072447 groups=["cameras"]]
+script = ExtResource("9_idv2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone2" unique_id=988625134]
+position = Vector2(784, 92)
+shape = SubResource("RectangleShape2D_idv2q")
+
+[node name="Zone3" type="Area2D" parent="CameraZones" unique_id=1902760608 groups=["cameras"]]
+script = ExtResource("9_idv2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone3" unique_id=1785664320]
+position = Vector2(1380, -344)
+shape = SubResource("RectangleShape2D_kthy0")
+
+[node name="Zone4" type="Area2D" parent="CameraZones" unique_id=1984121358 groups=["cameras"]]
+position = Vector2(1840, -384)
+script = ExtResource("9_idv2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone4" unique_id=1380632952]
+position = Vector2(-24, -35)
+shape = SubResource("RectangleShape2D_yuis5")

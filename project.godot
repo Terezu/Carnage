@@ -30,6 +30,7 @@ projetil=""
 alavanca=""
 parede_alavanca=""
 projetil_inimigo=""
+cameras=""
 
 [input]
 

@@ -21,6 +21,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Referência para limitação da câmera
 @onready var camera: Camera2D = $Camera2D
 
+var zona_camera_atual: Area2D = null
+
 # Referência para o nó de animação
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -30,7 +32,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready() -> void:
 	pass
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
+	atualizar_zona_camera()
+	
 	# Aplica gravidade se não estiver no chão
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -156,3 +160,25 @@ func aplicar_limites_camera(left: int, right: int, top: int, bottom: int) -> voi
 	camera.limit_right = right
 	camera.limit_top = top
 	camera.limit_bottom = bottom
+	
+func atualizar_zona_camera() -> void:
+	var melhor_zona: Area2D = null
+
+	for zona in get_tree().get_nodes_in_group("cameras"):
+		if zona.contem_ponto(global_position):
+			if melhor_zona == null or zona.prioridade > melhor_zona.prioridade:
+				melhor_zona = zona
+
+	if melhor_zona != null and melhor_zona != zona_camera_atual:
+		zona_camera_atual = melhor_zona
+		aplicar_limites_da_zona(melhor_zona)
+		
+func aplicar_limites_da_zona(zona: Area2D) -> void:
+	var limites = zona.pegar_limites()
+
+	camera.limit_left = limites["left"]
+	camera.limit_right = limites["right"]
+	camera.limit_top = limites["top"]
+	camera.limit_bottom = limites["bottom"]
+
+	print("Zona atual:", zona.name)

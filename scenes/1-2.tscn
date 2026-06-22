@@ -19,7 +19,7 @@ size = Vector2(920, 714)
 size = Vector2(1744, 1736)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf4u7"]
-size = Vector2(432, 202)
+size = Vector2(432, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phvg2"]
 size = Vector2(481, 778)
@@ -27,7 +27,9 @@ size = Vector2(481, 778)
 [node name="1-2" type="Node2D" unique_id=1105521610]
 
 [node name="Carnage" parent="." unique_id=26066746 instance=ExtResource("2_i6ddn")]
-light_mask = 2
+light_mask = 7
+visibility_layer = 7
+z_index = 1
 
 [node name="1" type="Sprite2D" parent="." unique_id=690345886]
 light_mask = 2
@@ -138,29 +140,32 @@ tile_map_data = PackedByteArray("AAAAAPn/AgACAAMAAAAAAPr/AgACAAEAAAAAAPv/AgACAAI
 
 [node name="CameraZones" type="Node2D" parent="." unique_id=795590023]
 
-[node name="Zone1" type="Area2D" parent="CameraZones" unique_id=581882895]
+[node name="Zone1" type="Area2D" parent="CameraZones" unique_id=581882895 groups=["cameras"]]
 script = ExtResource("11_r5184")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone1" unique_id=1498423246]
+z_index = 1
 position = Vector2(396, -347)
 shape = SubResource("RectangleShape2D_inqie")
 
-[node name="Zone2" type="Area2D" parent="CameraZones" unique_id=875094475]
+[node name="Zone2" type="Area2D" parent="CameraZones" unique_id=875094475 groups=["cameras"]]
+priority = 1
 script = ExtResource("11_r5184")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone2" unique_id=496840043]
 position = Vector2(1728, -332)
 shape = SubResource("RectangleShape2D_r5184")
 
-[node name="Zone3" type="Area2D" parent="CameraZones" unique_id=315657370]
+[node name="Zone3" type="Area2D" parent="CameraZones" unique_id=315657370 groups=["cameras"]]
 position = Vector2(1410, 664)
+priority = 2
 script = ExtResource("11_r5184")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone3" unique_id=1000755802]
-position = Vector2(206, -91)
+position = Vector2(206, -59)
 shape = SubResource("RectangleShape2D_wf4u7")
 
-[node name="Zone4" type="Area2D" parent="CameraZones" unique_id=177233130]
+[node name="Zone4" type="Area2D" parent="CameraZones" unique_id=177233130 groups=["cameras"]]
 position = Vector2(3080, 112)
 script = ExtResource("11_r5184")
 
