@@ -80,9 +80,10 @@ polygon = PackedVector2Array(0, 0, 40, 0, 40, -104, 48, -128, 48, -160, -88, -16
 position = Vector2(672, -376)
 polygon = PackedVector2Array(0, 0, 40, 8, 48, 8, 72, 0, 160, 0, 160, -40, 0, -40, -8, -32, -8, -8)
 
-[node name="Avalanca" parent="." unique_id=13794006 instance=ExtResource("5_0mshq")]
+[node name="Avalanca" parent="." unique_id=13794006 node_paths=PackedStringArray("parede") instance=ExtResource("5_0mshq")]
 position = Vector2(1088.0001, -216)
 scale = Vector2(1.9968212, 2.4942489)
+parede = NodePath("../ParedeAlavanca")
 
 [node name="ParedeAlavanca" parent="." unique_id=815447340 instance=ExtResource("6_epfis")]
 position = Vector2(1794, -408)

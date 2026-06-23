@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+@export var parede: Node2D
+
 var player_na_area: bool = false
 var ativada: bool = false
 
@@ -17,6 +19,10 @@ func _process(_delta: float) -> void:
 func ativar_alavanca() -> void:
 	ativada = true
 	animated_sprite.play("ativar")
+	
+	if parede:
+		print("PAREDE ENCONTRADA:", parede.name)
+		parede.quebrar()
 	print("ALAVANCA ATIVADA")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

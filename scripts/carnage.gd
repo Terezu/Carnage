@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 const FATOR_CRESCIMENTO = 1.1 # Crescimento de 10% ao colidir com inimigo
 const FATOR_REDUCAO = 0.95 # Reduzir 5% é o mesmo que multiplicar por 0.95
 const ESCALA_MAX = 2.5
-const ESCALA_MIN = 0.5
+const ESCALA_MIN = 0.3
 
 const PROJETIL = preload("res://scenes/projetil.tscn")
 
@@ -165,6 +165,10 @@ func atualizar_zona_camera() -> void:
 	var melhor_zona: Area2D = null
 
 	for zona in get_tree().get_nodes_in_group("cameras"):
+		if not zona.has_method("contem_ponto"):
+			print("Nó no grupo cameras sem contem_ponto:", zona.name)
+			continue
+		
 		if zona.contem_ponto(global_position):
 			if melhor_zona == null or zona.prioridade > melhor_zona.prioridade:
 				melhor_zona = zona

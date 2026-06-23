@@ -12,4 +12,4 @@ func quebrar():
 	queue_free()
 
 func animacao():
-		animated_sprite.play("ativar")
+		animated_sprite.play("desfazer")

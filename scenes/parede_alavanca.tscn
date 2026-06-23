@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://laxb4vkyf280" path="res://scripts/parede_alavanca.gd" id="1_umkn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a4ru"]
-size = Vector2(48, 128)
+size = Vector2(8, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umkn8"]
-size = Vector2(48, 128)
+size = Vector2(8, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umkn8"]
 atlas = ExtResource("1_r8kqr")
@@ -67,13 +67,13 @@ collision_layer = 2
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=838948242 groups=["parede_alavanca"]]
-position = Vector2(0, -64)
+position = Vector2(-4, -64)
 shape = SubResource("RectangleShape2D_6a4ru")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=479483954 groups=["parede_alavanca"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1991284197 groups=["parede_alavanca"]]
-position = Vector2(0, -64)
+position = Vector2(-4, -64)
 shape = SubResource("RectangleShape2D_umkn8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1487268612 groups=["parede_alavanca"]]
