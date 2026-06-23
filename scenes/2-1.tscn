@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bvf2khqkcbxre" path="res://scenes/fundo.tscn" id="7_gs612"]
 [ext_resource type="Script" uid="uid://wr25l7lmpuyh" path="res://scripts/zona_camera.gd" id="9_idv2q"]
 [ext_resource type="PackedScene" uid="uid://baqaa1hjeb344" path="res://scenes/inimigo2.tscn" id="9_kthy0"]
+[ext_resource type="PackedScene" uid="uid://bna46adj2gjwc" path="res://scenes/token_fim.tscn" id="10_kthy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gw7k"]
 size = Vector2(544, 328)
@@ -130,3 +131,7 @@ script = ExtResource("9_idv2q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZones/Zone4" unique_id=1380632952]
 position = Vector2(-24, -35)
 shape = SubResource("RectangleShape2D_yuis5")
+
+[node name="Fim" parent="." unique_id=1134808095 instance=ExtResource("10_kthy0")]
+position = Vector2(1837.0001, -408)
+scale = Vector2(0.461, 0.5)

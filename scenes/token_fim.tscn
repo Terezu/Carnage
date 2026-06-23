@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bna46adj2gjwc"]
+
+[ext_resource type="Texture2D" uid="uid://c62ml3f0t7tlx" path="res://Sprites/token to end phase.png" id="1_wjkt0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l3i6"]
+size = Vector2(32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ohrh"]
+atlas = ExtResource("1_wjkt0")
+region = Rect2(0, 0, 64, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa3i7"]
+atlas = ExtResource("1_wjkt0")
+region = Rect2(64, 0, 64, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhjtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ohrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa3i7")
+}],
+"loop": false,
+"name": &"fim",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1134808095]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=865053765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=535943187]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_3l3i6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2054475278]
+position = Vector2(0, -32)
+scale = Vector2(0.75, 0.9275362)
+sprite_frames = SubResource("SpriteFrames_xhjtm")
+animation = &"fim"

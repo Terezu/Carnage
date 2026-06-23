@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const FATOR_CRESCIMENTO = 1.1 # Crescimento de 10% ao colidir com inimigo
-const FATOR_REDUCAO = 0.95 # Reduzir 5% é o mesmo que multiplicar por 0.95
+const FATOR_REDUCAO = 0.90 # Reduzir 5% é o mesmo que multiplicar por 0.95
 const ESCALA_MAX = 2.5
 const ESCALA_MIN = 0.3
 
@@ -153,7 +153,7 @@ func receber_dano(valor: int) -> void:
 
 func morrer() -> void:
 	print("Player morreu")
-	queue_free()
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func aplicar_limites_camera(left: int, right: int, top: int, bottom: int) -> void:
 	camera.limit_left = left
@@ -172,6 +172,10 @@ func atualizar_zona_camera() -> void:
 		if zona.contem_ponto(global_position):
 			if melhor_zona == null or zona.prioridade > melhor_zona.prioridade:
 				melhor_zona = zona
+				
+	if melhor_zona == null:
+		morrer()
+		return
 
 	if melhor_zona != null and melhor_zona != zona_camera_atual:
 		zona_camera_atual = melhor_zona
